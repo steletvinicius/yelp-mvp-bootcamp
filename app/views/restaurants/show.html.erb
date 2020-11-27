@@ -22,6 +22,11 @@
     <%= @restaurant.phone_number %>
   </p>
 
+  <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category %>
+  </p>
+
   <% @restaurant.reviews.each do |review| %>
     <p>
       <%= review.content %>
