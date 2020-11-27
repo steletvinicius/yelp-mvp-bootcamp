@@ -5,6 +5,8 @@
     <strong>ID:</strong>
     <%= @restaurant.id %>
   </p>
+
+
   <p>
     <strong>Name:</strong>
     <%= @restaurant.name %>
@@ -25,13 +27,19 @@
     <%= @restaurant.category %>
   </p>
 
+
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, collection: %i[1 2 3 4 5]%>
+    <%= f.submit 'Submit Review', class: "btn btn-primary"  %>
+  <% end %>
+
   <% @restaurant.reviews.each do |review| %>
     <p>
       <%= review.content %>
       <hr>
     </p>
   <% end %>
-
 
   <%= link_to 'Back', restaurants_path %>
   <%= link_to 'Review', new_restaurant_review_path(@restaurant) %>

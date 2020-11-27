@@ -1,9 +1,32 @@
-<h1> All the restaurants </h1>
 
-<% @restaurants.each do |restaurant| %>
-  <p> <%= restaurant.id %>
-      <%= restaurant.name %>
-      <%= restaurant.address %>
-      <%= restaurant.phone_number%>
-  </p>
-<% end %>
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.phone_number %></td>
+        <td><%= link_to 'Show', restaurant %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>
+
